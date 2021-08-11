@@ -35,7 +35,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
@@ -55,7 +55,7 @@ import javax.crypto.spec.SecretKeySpec;
 @Execution(ExecutionMode.CONCURRENT)
 @ResourceLock(value = TestUtil.RESOURCE_GLOBAL, mode = ResourceAccessMode.READ)
 public class EvpSignatureSpecificTest {
-    private static final BouncyCastleProvider BOUNCYCASTLE_PROVIDER = new BouncyCastleProvider();
+    private static final BouncyCastleFipsProvider BOUNCYCASTLE_PROVIDER = new BouncyCastleFipsProvider();
     private static final byte[] MESSAGE = new byte[513];
     private final static KeyPair RSA_PAIR;
     private final static KeyPair DSA_PAIR;

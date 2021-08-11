@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
-import org.bouncycastle.crypto.prng.BasicEntropySourceProvider;
+import org.bouncycastle.crypto.util.BasicEntropySourceProvider;
 
 import com.amazon.corretto.crypto.provider.AesCtrDrbg;
 
@@ -36,7 +36,7 @@ public class RecursiveInitializationTest {
     }
 
     // Providers
-    private static final String BOUNCYCASTLE_PROVIDER = "org.bouncycastle.jce.provider.BouncyCastleProvider";
+    private static final String BOUNCYCASTLE_PROVIDER = "org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider";
 
     public static void load() throws Exception {
         loadNonFips();

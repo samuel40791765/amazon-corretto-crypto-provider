@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Set;
 
 import com.amazon.corretto.crypto.provider.test.TestResultLogger;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -178,7 +178,7 @@ public class LocalHTTPSIntegrationTest {
     @MethodSource("data")
     public void test(boolean serverAACPEnabled, boolean bcEnabled, String suite, String signatureType, int keyBits) throws Exception {
         if (bcEnabled) {
-            Security.insertProviderAt(new BouncyCastleProvider(), 2);
+            Security.insertProviderAt(new BouncyCastleFipsProvider(), 2);
         }
 
         int port = serverAACPEnabled ? withAACP.getPort() : withoutAACP.getPort();

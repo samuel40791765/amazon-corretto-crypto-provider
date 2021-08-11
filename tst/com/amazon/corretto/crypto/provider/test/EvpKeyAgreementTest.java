@@ -49,7 +49,7 @@ import org.bouncycastle.asn1.ASN1Encodable;
 import org.bouncycastle.asn1.ASN1Sequence;
 import org.bouncycastle.asn1.DERBitString;
 import org.bouncycastle.asn1.DERSequence;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -65,7 +65,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 @Execution(ExecutionMode.SAME_THREAD) // Parameters are shared
 @ResourceLock(value = TestUtil.RESOURCE_GLOBAL, mode = ResourceAccessMode.READ)
 public class EvpKeyAgreementTest {
-    private static final BouncyCastleProvider BC_PROV = new BouncyCastleProvider();
+    private static final BouncyCastleFipsProvider BC_PROV = new BouncyCastleFipsProvider();
     private static final int PAIR_COUNT = 25;
     private static List<TestParams> MASTER_PARAMS_LIST;
 

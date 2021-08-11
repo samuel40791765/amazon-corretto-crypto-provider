@@ -17,7 +17,7 @@ import java.util.ArrayList;
 
 import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
 import com.amazon.corretto.crypto.provider.test.TestResultLogger;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.api.parallel.Execution;
@@ -87,7 +87,7 @@ public class ExternalHTTPSIntegrationTest {
         if (useBouncyCastle) {
             // Note also that BC cannot be installed as position 1, as it'll result in recursively invoking its own RNG
             // to perform initial seeding.
-            BouncyCastleProvider bcProv = new BouncyCastleProvider();
+            BouncyCastleFipsProvider bcProv = new BouncyCastleFipsProvider();
             // There is a bug in versions of BouncyCastle prior to 1.61 related to PSS signatures in TLS with Java 11.
             // Thus, if our URL is "https://example.com" and BouncyCastle is enabled with an old version, then we skip
             // this test to avoid failures unrelated to ACCP.

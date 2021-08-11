@@ -44,6 +44,7 @@ security.provider.15=SunPCSC
 security.provider.16=JdkLDAP
 security.provider.17=JdkSASL
 security.provider.18=SunPKCS11
+security.provider.19=org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider
 
 #
 # A list of known strong SecureRandom implementations.

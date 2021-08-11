@@ -564,7 +564,8 @@ add_jar(
         tst/com/amazon/corretto/crypto/provider/test/integration/ExternalHTTPSIntegrationTest.java
         tst/com/amazon/corretto/crypto/provider/test/integration/HTTPSTestParameters.java
         tst/com/amazon/corretto/crypto/provider/test/integration/LocalHTTPSIntegrationTest.java
-        tst/com/amazon/corretto/crypto/provider/test/integration/TestCertificateGenerator.java
+        # Disable temporarily for BouncyCastleFips
+        # tst/com/amazon/corretto/crypto/provider/test/integration/TestCertificateGenerator.java
         tst/com/amazon/corretto/crypto/provider/test/integration/TestHTTPSServer.java
         # Not tests, but things we need related to tests
         tst/com/amazon/corretto/crypto/provider/test/AESBench.java

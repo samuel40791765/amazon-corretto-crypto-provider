@@ -6,7 +6,7 @@ package com.amazon.corretto.crypto.provider.test;
 import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
 
 import org.apache.commons.codec.binary.Hex;
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.junit.jupiter.api.Assumptions;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,7 +36,7 @@ public class TestUtil {
      * Tests which require exclusive control should take a "READ_WRITE" lock.
      */
     public static final String RESOURCE_GLOBAL = "GLOBAL_TEST_LOCK";
-    public static final BouncyCastleProvider BC_PROVIDER = new BouncyCastleProvider();
+    public static final BouncyCastleFipsProvider BC_PROVIDER = new BouncyCastleFipsProvider();
     public static final Provider NATIVE_PROVIDER = AmazonCorrettoCryptoProvider.INSTANCE;
 
     /**

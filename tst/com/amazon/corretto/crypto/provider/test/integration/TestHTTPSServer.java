@@ -40,7 +40,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.function.Consumer;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 
 import com.amazon.corretto.crypto.provider.AmazonCorrettoCryptoProvider;
 import com.sun.net.httpserver.HttpExchange;
@@ -222,7 +222,7 @@ public class TestHTTPSServer {
             AmazonCorrettoCryptoProvider.install();
         }
 
-        Security.addProvider(new BouncyCastleProvider());
+        Security.addProvider(new BouncyCastleFipsProvider());
         runServer();
 
         // Die after 10 minutes in case the test failed to terminate us
@@ -238,7 +238,7 @@ public class TestHTTPSServer {
         // In Java 9 we can't easily get at the classpath, for now we'll just grab classpath URLs from specific classes
         // of interest.
 
-        Class<?>[] klasses = new Class<?>[] { TestHTTPSServer.class, BouncyCastleProvider.class, AmazonCorrettoCryptoProvider.class };
+        Class<?>[] klasses = new Class<?>[] { TestHTTPSServer.class, BouncyCastleFipsProvider.class, AmazonCorrettoCryptoProvider.class };
         HashSet<URL> classpathElements = new HashSet<>();
 
         for (Class<?> klass : klasses) {
