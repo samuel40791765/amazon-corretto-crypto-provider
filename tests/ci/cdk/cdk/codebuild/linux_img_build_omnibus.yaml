@@ -11,9 +11,20 @@ batch:
     # Linux x86 #
     #############
     - identifier: linux_x86_docker_img_build
-      buildspec: ./tests/ci/codebuild/linux-x86/docker-img-build.yml
+      buildspec: ./tests/ci/codebuild/linux-x86-docker-img-build.yml
       env:
         type: LINUX_CONTAINER
         privileged-mode: true
         compute-type: BUILD_GENERAL1_LARGE
         image: aws/codebuild/standard:4.0
+
+    ###############
+    # Linux aarch #
+    ###############
+    - identifier: linux_aarch_docker_img_build
+      buildspec: ./tests/ci/codebuild/linux-arm-docker-img-build.yml
+      env:
+        type: ARM_CONTAINER
+        privileged-mode: true
+        compute-type: BUILD_GENERAL1_LARGE
+        image: aws/codebuild/amazonlinux2-aarch64-standard:1.0

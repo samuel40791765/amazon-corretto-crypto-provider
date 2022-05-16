@@ -10,6 +10,7 @@ AWS_ACCOUNT = EnvUtil.get("CDK_DEPLOY_ACCOUNT", "838297025124")
 AWS_REGION = EnvUtil.get("CDK_DEPLOY_REGION", "us-west-2")
 
 # Used when AWS CDK defines ECR repos.
+LINUX_ARM_ECR_REPO = EnvUtil.get("ECR_LINUX_ARM_REPO_NAME", "accp-docker-images-linux-arm")
 LINUX_X86_ECR_REPO = EnvUtil.get("ECR_LINUX_X86_REPO_NAME", "accp-docker-images-linux-x86")
 
 # Used when AWS CodeBuild needs to create web_hooks.

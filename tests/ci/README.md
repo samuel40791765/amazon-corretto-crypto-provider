@@ -34,12 +34,10 @@ $ ./tests/ci/run_accp_basic_tests.sh
 ## Test locations
 ### Unit tests
 Runs all tests for:
-* Debug
-* Release
-* Small
-* No assembly
-* Shared libs
+* release
+* test_integration
 
 CI Tool|C Compiler|Java Compiler|CPU platform|OS
 ------------ | -------------| -------------| -------------|-------------
 CodeBuild|gcc 7|corretto 8,11,17|x86-64|Ubuntu 20.04
+CodeBuild|gcc 7|corretto 8,11,17|aarch64|Ubuntu 20.04
