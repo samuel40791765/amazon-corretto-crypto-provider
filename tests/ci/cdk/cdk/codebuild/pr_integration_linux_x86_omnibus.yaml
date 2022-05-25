@@ -12,7 +12,7 @@ batch:
         type: LINUX_CONTAINER
         privileged-mode: false
         compute-type: BUILD_GENERAL1_LARGE
-        image: ECR_REPO_PLACEHOLDER:ubuntu-20.04_gcc-7x_corretto_latest
+        image: ECR_REPO_PLACEHOLDER:ubuntu-20.04_gcc-7x_corretto_x86_latest
 
     - identifier: ubuntu2004_gcc7x_corretto_test_integration_x86
       buildspec: ./tests/ci/codebuild/run_accp_test_integration.yml
@@ -20,4 +20,4 @@ batch:
         type: LINUX_CONTAINER
         privileged-mode: false
         compute-type: BUILD_GENERAL1_LARGE
-        image: ECR_REPO_PLACEHOLDER:ubuntu-20.04_gcc-7x_corretto_latest
+        image: ECR_REPO_PLACEHOLDER:ubuntu-20.04_gcc-7x_corretto_x86_latest
