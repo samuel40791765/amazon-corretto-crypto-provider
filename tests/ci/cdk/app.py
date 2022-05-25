@@ -18,7 +18,7 @@ env = core.Environment(account=AWS_ACCOUNT, region=AWS_REGION)
 
 # Define AWS ECR stacks.
 # ECR holds the docker images, which are pre-built to accelerate the code builds/tests of git pull requests.
-EcrStack(app, "accp-ecr-linux", LINUX_ECR_REPO, env=env)
+EcrStack(app, "accp-ecr-linux-all", LINUX_ECR_REPO, env=env)
 
 # Define CodeBuild Batch job for building Docker images.
 LinuxDockerImageBatchBuildStack(app, "accp-docker-image-build-linux", env=env)
