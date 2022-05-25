@@ -24,7 +24,7 @@ class LinuxDockerImageBatchBuildStack(core.Stack):
 
         # Define a role.
         code_build_batch_policy = iam.PolicyDocument.from_json(code_build_batch_policy_in_json([id]))
-        ecr_repo_names = [LINUX_X86_ECR_REPO]
+        ecr_repo_names = [LINUX_X86_ECR_REPO, LINUX_ARM_ECR_REPO]
         ecr_power_user_policy = iam.PolicyDocument.from_json(ecr_power_user_policy_in_json(ecr_repo_names))
         inline_policies = {"code_build_batch_policy": code_build_batch_policy,
                            "ecr_power_user_policy": ecr_power_user_policy}
