@@ -3,7 +3,7 @@
 
 from aws_cdk import core, aws_codebuild as codebuild, aws_iam as iam, aws_ec2 as ec2
 
-from util.metadata import AWS_ACCOUNT, GITHUB_REPO_OWNER, GITHUB_REPO_NAME, GITHUB_SOURCE_VERSION, LINUX_X86_ECR_REPO
+from util.metadata import AWS_ACCOUNT, GITHUB_REPO_OWNER, GITHUB_REPO_NAME, GITHUB_SOURCE_VERSION, LINUX_X86_ECR_REPO, LINUX_ARM_ECR_REPO
 from util.iam_policies import code_build_batch_policy_in_json, ecr_power_user_policy_in_json
 from util.yml_loader import YmlLoader
 
@@ -40,6 +40,7 @@ class LinuxDockerImageBatchBuildStack(core.Stack):
         environment_variables = {
             "AWS_ACCOUNT_ID": codebuild.BuildEnvironmentVariable(value=AWS_ACCOUNT),
             "AWS_ECR_REPO_X86": codebuild.BuildEnvironmentVariable(value=LINUX_X86_ECR_REPO),
+            "AWS_ECR_REPO_ARM": codebuild.BuildEnvironmentVariable(value=LINUX_ARM_ECR_REPO),
             "GITHUB_REPO_OWNER": codebuild.BuildEnvironmentVariable(value=GITHUB_REPO_OWNER),
         }
 

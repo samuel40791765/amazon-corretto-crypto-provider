@@ -1,7 +1,7 @@
 # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 # SPDX-License-Identifier: Apache-2.0
 
-FROM ubuntu:20.04
+FROM arm64v8/ubuntu:20.04
 
 SHELL ["/bin/bash", "-c"]
 

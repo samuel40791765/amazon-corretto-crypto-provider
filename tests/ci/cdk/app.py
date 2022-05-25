@@ -8,7 +8,7 @@ from aws_cdk import core
 from cdk.accp_github_ci_stack import ACCPGitHubCIStack
 from cdk.linux_docker_image_batch_build_stack import LinuxDockerImageBatchBuildStack
 from cdk.ecr_stack import EcrStack
-from util.metadata import AWS_ACCOUNT, AWS_REGION, LINUX_X86_ECR_REPO
+from util.metadata import AWS_ACCOUNT, AWS_REGION, LINUX_X86_ECR_REPO, LINUX_ARM_ECR_REPO
 
 # Initialize app.
 app = core.App()
@@ -26,6 +26,8 @@ LinuxDockerImageBatchBuildStack(app, "accp-docker-image-build-linux", env=env)
 # Define CodeBuild Batch job for testing code.
 x86_build_spec_file = "./cdk/codebuild/pr_integration_linux_x86_omnibus.yaml"
 ACCPGitHubCIStack(app, "accp-ci-pr-integration-linux-x86", LINUX_X86_ECR_REPO, x86_build_spec_file, env=env)
+arm_build_spec_file = "./cdk/codebuild/pr_integration_linux_arm_omnibus.yaml"
+ACCPGitHubCIStack(app, "accp-ci-pr-integration-linux-arm", LINUX_ARM_ECR_REPO, arm_build_spec_file, env=env)
 extra_build_spec_file = "./cdk/codebuild/dieharder_overkill_omnibus.yaml"
 ACCPGitHubCIStack(app, "accp-ci-overkill-dieharder", LINUX_X86_ECR_REPO, extra_build_spec_file, env=env)
 
