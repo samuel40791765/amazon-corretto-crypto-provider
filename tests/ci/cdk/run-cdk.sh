@@ -16,6 +16,9 @@ function delete_container_repositories() {
   if [[ "${ecr_repos}" == *"${ECR_LINUX_X86_REPO_NAME}"* ]]; then
     aws ecr delete-repository --repository-name "${ECR_LINUX_X86_REPO_NAME}" --force
   fi
+    if [[ "${ecr_repos}" == *"${ECR_LINUX_ARM_REPO_NAME}"* ]]; then
+    aws ecr delete-repository --repository-name "${ECR_LINUX_ARM_REPO_NAME}" --force
+  fi
 }
 
 function destroy_ci() {
@@ -150,6 +153,7 @@ function export_global_variables() {
   DATE_NOW="$(date +%Y-%m-%d-%H-%M)"
   export GITHUB_REPO='amazon-corretto-crypto-provider'
   export ECR_LINUX_X86_REPO_NAME='accp-docker-images-linux-x86'
+  export ECR_LINUX_ARM_REPO_NAME='accp-docker-images-linux-arm'
   export IMG_BUILD_STATUS='unknown'
 }
 
