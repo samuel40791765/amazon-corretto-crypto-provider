@@ -114,6 +114,14 @@
             }                                           \
             return PTR_NAME(name);                      \
         }                                               \
+        name* get()                                     \
+        {                                               \
+            return PTR_NAME(name);                      \
+        }                                               \
+        name** getAddressOfPtr()                        \
+        {                                               \
+            return &PTR_NAME(name);                     \
+        }                                               \
     }
 
 OPENSSL_auto(RSA);
@@ -122,6 +130,7 @@ OPENSSL_auto(EC_GROUP);
 OPENSSL_auto(EC_POINT);
 OPENSSL_auto(EC_KEY);
 OPENSSL_auto(BN_CTX);
+OPENSSL_auto(EVP_MD_CTX);
 OPENSSL_auto(EVP_PKEY);
 OPENSSL_auto(EVP_PKEY_CTX);
 
@@ -154,16 +163,6 @@ public:
     unsigned char **operator&()
     {
         return &buf;
-    }
-
-    operator uint8_t *()
-    {
-        return reinterpret_cast<uint8_t *>(buf);
-    }
-
-    operator uint8_t *() const
-    {
-        return reinterpret_cast<uint8_t *>(buf);
     }
 
     operator jbyte *()

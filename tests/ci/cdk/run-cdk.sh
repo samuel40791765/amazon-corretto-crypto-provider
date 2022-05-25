@@ -13,9 +13,6 @@ set -exuo pipefail
 
 function delete_container_repositories() {
   ecr_repos=$(aws ecr describe-repositories)
-  if [[ "${ecr_repos}" == *"${ECR_LINUX_ARM_REPO_NAME}"* ]]; then
-    aws ecr delete-repository --repository-name "${ECR_LINUX_ARM_REPO_NAME}" --force
-  fi
   if [[ "${ecr_repos}" == *"${ECR_LINUX_X86_REPO_NAME}"* ]]; then
     aws ecr delete-repository --repository-name "${ECR_LINUX_X86_REPO_NAME}" --force
   fi
@@ -152,7 +149,6 @@ function export_global_variables() {
   # Other variables for managing resources.
   DATE_NOW="$(date +%Y-%m-%d-%H-%M)"
   export GITHUB_REPO='amazon-corretto-crypto-provider'
-  export ECR_LINUX_ARM_REPO_NAME='accp-docker-images-linux-arm'
   export ECR_LINUX_X86_REPO_NAME='accp-docker-images-linux-x86'
   export IMG_BUILD_STATUS='unknown'
 }

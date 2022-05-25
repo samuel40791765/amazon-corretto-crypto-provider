@@ -33,11 +33,21 @@ $ ./tests/ci/run_accp_basic_tests.sh
 
 ## Test locations
 ### Unit tests
-Runs all tests for:
+Runs tests for:
 * release
 * test_integration
 
 CI Tool|C Compiler|Java Compiler|CPU platform|OS
 ------------ | -------------| -------------| -------------|-------------
 CodeBuild|gcc 7|corretto 8,11,17|x86-64|Ubuntu 20.04
-CodeBuild|gcc 7|corretto 8,11,17|aarch64|Ubuntu 20.04
+
+
+### Dieharder & Overkill tests
+Runs tests for:
+* test_extra_checks
+* test_integration_extra_checks
+* dieharder_threads
+
+CI Tool|C Compiler|Java Compiler|CPU platform|OS
+------------ | -------------| -------------| -------------|-------------
+CodeBuild|gcc 7|corretto 8,11,17|x86-64|Ubuntu 20.04
