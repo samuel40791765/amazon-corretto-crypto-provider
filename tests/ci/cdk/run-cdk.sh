@@ -16,7 +16,7 @@ function delete_container_repositories() {
   if [[ "${ecr_repos}" == *"${ECR_LINUX_X86_REPO_NAME}"* ]]; then
     aws ecr delete-repository --repository-name "${ECR_LINUX_X86_REPO_NAME}" --force
   fi
-    if [[ "${ecr_repos}" == *"${ECR_LINUX_ARM_REPO_NAME}"* ]]; then
+  if [[ "${ecr_repos}" == *"${ECR_LINUX_ARM_REPO_NAME}"* ]]; then
     aws ecr delete-repository --repository-name "${ECR_LINUX_ARM_REPO_NAME}" --force
   fi
 }
