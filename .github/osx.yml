@@ -1,0 +1,23 @@
+name: macOS CI
+
+# Workflow syntax.
+# https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions
+on:
+  pull_request:
+    branches:
+      - '*'
+
+env:
+  PACKAGE_NAME: aws-lc
+  # Used to enable ASAN test dimension.
+  AWSLC_NO_ASM_FIPS: 1
+
+jobs:
+  macOS:
+    runs-on: macos-11 # latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build ${{ env.PACKAGE_NAME }}
+      run: |
+        ./tests/ci/run_accp_basic_tests.sh
+        ./tests/ci/run_accp_test_integration.sh

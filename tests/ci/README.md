@@ -40,7 +40,7 @@ Runs tests for:
 CI Tool|C Compiler|Java Compiler|CPU platform|OS
 ------------ | -------------| -------------| -------------|-------------
 CodeBuild|gcc 7|corretto 8,11,17|x86-64|Ubuntu 20.04
-
+GitHub Workflow|AppleClang 13.0.0|x86-64|macOS 11
 
 ### Dieharder & Overkill tests
 Runs tests for:
