@@ -20,30 +20,39 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: true
-    - name: Set up corretto 17
+
+    - name: Set up corretto 11
       uses: actions/setup-java@v3
       with:
-        java-version: '17'
+        java-version: '11'
         distribution: 'corretto'
-    - name: Build ${{ env.PACKAGE_NAME }}
+    - name: Build ${{ env.PACKAGE_NAME }} in corretto 11
       run: |
         ./tests/ci/run_accp_basic_tests.sh
+    - name: Run integration tests for ${{ env.PACKAGE_NAME }} in corretto 11
+      run: |
         ./tests/ci/run_accp_test_integration.sh
+
     - name: Set up corretto 8
       uses: actions/setup-java@v3
       with:
         java-version: '8'
         distribution: 'corretto'
-    - name: Build ${{ env.PACKAGE_NAME }}
+    - name: Build ${{ env.PACKAGE_NAME }} in corretto 8
       run: |
         ./tests/ci/run_accp_basic_tests.sh
+    - name: Run integration tests for ${{ env.PACKAGE_NAME }} in corretto 8
+      run: |
         ./tests/ci/run_accp_test_integration.sh
+
     - name: Set up corretto 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'corretto'
-    - name: Build ${{ env.PACKAGE_NAME }}
+    - name: Build ${{ env.PACKAGE_NAME }} in corretto 17
       run: |
         ./tests/ci/run_accp_basic_tests.sh
+    - name: Run integration tests for ${{ env.PACKAGE_NAME }} in corretto 17
+      run: |
         ./tests/ci/run_accp_test_integration.sh
