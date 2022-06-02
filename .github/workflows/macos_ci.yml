@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-  PACKAGE_NAME: ACCP
+  PACKAGE_NAME: ACCP-test
 
 jobs:
   macOS:
