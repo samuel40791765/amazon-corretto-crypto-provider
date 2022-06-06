@@ -13,12 +13,12 @@ if (( "$version" <= "10" )); then
 	exit $?
 fi
 
-# # Assign the JDK version we're testing as the system's default JDK and
-# # assign JAVA_HOME variable to the path. Otherwise, Ubuntu will
-# # default to the newest version of Java on the system.
-# export JAVA_HOME=$TEST_JAVA_HOME
-# export PATH=$JAVA_HOME/bin:$PATH
+# Assign the JDK version we're testing as the system's default JDK and
+# assign JAVA_HOME variable to the path. Otherwise, Ubuntu will
+# default to the newest version of Java on the system.
+export JAVA_HOME=$TEST_JAVA_HOME
+export PATH=$JAVA_HOME/bin:$PATH
 
-# # TEST_JAVA_MAJOR_VERSION is necessary in Java17+ for certain unit tests to
-# # perform deep reflection on nonpublic members.
-# ./gradlew -DTEST_JAVA_MAJOR_VERSION=$version test_integration
+# TEST_JAVA_MAJOR_VERSION is necessary in Java17+ for certain unit tests to
+# perform deep reflection on nonpublic members.
+./gradlew -DTEST_JAVA_MAJOR_VERSION=$version test_integration
