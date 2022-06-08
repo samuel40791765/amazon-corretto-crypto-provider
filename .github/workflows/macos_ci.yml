@@ -31,7 +31,7 @@ jobs:
         distribution: 'corretto'
     - name: Get JAVA_HOME variable for correto 8
       run: |
-        echo "JAVA8_HOME=${{ env.JAVA_HOME }}"
+        echo "JAVA8_HOME=${{ env.JAVA_HOME }}" >> $GITHUB_ENV
 
     # Test on Corretto 11.
     - name: Set up corretto 11
