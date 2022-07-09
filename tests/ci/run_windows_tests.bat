@@ -2,7 +2,7 @@
 set SRC_ROOT=%cd%
 set BUILD_DIR=%SRC_ROOT%\test_build_dir
 
-@rem This script was taken from AWS-LC and can be adjusted when ACCP adds support for Windows.
+@rem TODO: This script was taken from AWS-LC and should be adjusted when ACCP adds support for Windows.
 @rem %1 contains the path to the setup batch file for the version of of visual studio that was passed into AWS-LC's build spec file.
 @rem x64 comes from the architecture options https://docs.microsoft.com/en-us/cpp/build/building-on-the-command-line
 set MSVC_PATH=%1
