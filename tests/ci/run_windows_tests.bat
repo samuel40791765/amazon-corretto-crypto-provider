@@ -21,7 +21,7 @@ goto :EOF
 :build_and_test
 @echo on
 @echo  LOG: %date%-%time% %1 %2 gradle build and test started.
-./gradlew.bat %1 %2 || goto error
+gradlew.bat %1 %2 || goto error
 @echo  LOG: %date%-%time% %1 %2 tests complete.
 exit /b 0
 
