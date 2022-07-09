@@ -9,7 +9,7 @@ set MSVC_PATH=%1
 call %MSVC_PATH% x64 || goto error
 SET
 
-call :build_and_test test "" || goto error
+call :build_and_test release "-DTEST_JAVA_MAJOR_VERSION=17" || goto error
 call :build_and_test test "-DTEST_JAVA_HOME=%TEST_JAVA_HOME%" || goto error
 call :build_and_test integration "" || goto error
 call :build_and_test integration "-DTEST_JAVA_HOME=%TEST_JAVA_HOME%" || goto error
